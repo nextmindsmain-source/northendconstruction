@@ -37,3 +37,6 @@ html.lenis, html.lenis body { height: auto; }
 .word { display: inline-block; overflow: hidden; vertical-align: top; }
 .word > span { display: inline-block; will-change: transform; }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+
+.px-wrap { padding-inline: max(1.25rem, calc((100% - 1440px) / 2)); }
+@media (min-width: 768px) { .px-wrap { padding-inline: max(2.5rem, calc((100% - 1440px) / 2)); } }

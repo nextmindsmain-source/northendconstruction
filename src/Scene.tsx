@@ -151,7 +151,7 @@ export default function Scene() {
     return () => window.removeEventListener('pointermove', fn)
   }, [])
   return (
-    <div className="fixed inset-y-0 left-1/2 -translate-x-1/2 w-full max-w-[1440px] z-[1] pointer-events-none">
+    <div className="fixed inset-0 z-[1] pointer-events-none">
       <Canvas camera={{ fov: 42, position: [0, 3, 15] }} dpr={[1, 1.75]} gl={{ antialias: true, powerPreference: 'high-performance' }}>
         <Dust />
         {SHOW_STICK_HOUSE && (

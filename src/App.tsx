@@ -66,7 +66,7 @@ function Mark({ className = '' }: { className?: string }) {
 
 function Nav() {
   return (
-    <header className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1440px] z-50 flex items-center justify-between px-5 md:px-10 py-4 bg-gradient-to-b from-ink/90 to-transparent">
+    <header className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-wrap py-4 bg-gradient-to-b from-ink/90 to-transparent">
       <a href="#top" className="flex items-center gap-4">
         <Mark className="h-14 w-[4.4rem]" />
         <span className="font-display font-extrabold tracking-tight leading-none text-2xl">
@@ -90,7 +90,7 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative min-h-screen flex items-center px-5 md:px-10">
+    <section id="top" className="relative min-h-screen flex items-center px-wrap">
       <div className="absolute inset-0 pointer-events-none opacity-60 [mask-image:linear-gradient(to_bottom,black,transparent)]">
         <Aurora colorStops={['#0686c7', '#2572b8', '#07111c']} amplitude={0.9} blend={0.6} speed={0.6} />
       </div>
@@ -136,7 +136,7 @@ function Story() {
   return (
     <section ref={ref} className="relative h-screen">
       {L.map(([n, h, p]) => (
-        <div key={n} className="story-line absolute inset-0 flex flex-col justify-center px-5 md:px-10 max-w-3xl md:ml-[6vw] [text-shadow:0_0_40px_#07111c,0_0_12px_#07111c]">
+        <div key={n} className="story-line absolute inset-0 flex flex-col justify-center px-5 md:px-10 max-w-3xl md:ml-[max(6vw,calc((100vw_-_1440px)/2_+_2.5rem))] [text-shadow:0_0_40px_#07111c,0_0_12px_#07111c]">
           <span className="font-mono text-brand text-sm tracking-widest mb-4">{n} / 03</span>
           <h2 className="font-display font-extrabold text-5xl md:text-8xl leading-none">{h}</h2>
           <p className="mt-6 text-xl text-white/70 max-w-md">{p}</p>
@@ -159,11 +159,11 @@ function Services() {
   }, [])
   return (
     <section id="services" ref={wrap} className="relative bg-ink/80 backdrop-blur-sm md:h-screen flex flex-col justify-center py-24 md:py-0 overflow-hidden">
-      <div className="px-5 md:px-10 mb-8">
+      <div className="px-wrap mb-8">
         <p className="font-mono text-xs tracking-[0.3em] text-brand uppercase">What we build</p>
         <h2 className="font-display font-extrabold text-4xl md:text-6xl mt-3">Four ways we change your home.</h2>
       </div>
-      <div ref={track} className="flex flex-col md:flex-row gap-6 px-5 md:px-10 w-max max-md:w-full">
+      <div ref={track} className="flex flex-col md:flex-row gap-6 px-wrap w-max max-md:w-full">
         {services.map((s) => (
           <article key={s.tag} className="group relative shrink-0 w-full md:w-[34vw] h-[60vh] md:h-[58vh] rounded-3xl overflow-hidden border border-white/10">
             <img src={s.img} alt={s.title} className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1500ms] group-hover:scale-110" loading="lazy" />
@@ -193,7 +193,7 @@ function Stats() {
   ]
   return (
     <section className="bg-ink/80 backdrop-blur-sm py-24 px-5 md:px-10">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-10 max-w-6xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-10 max-w-[1440px] mx-auto">
         {s.map(([n, suf, label]) => (
           <div key={label} data-reveal>
             <div className="font-display font-extrabold text-5xl md:text-7xl grad-text">
@@ -210,7 +210,7 @@ function Stats() {
 function Why() {
   return (
     <section id="why" className="bg-deep/85 backdrop-blur-sm py-28 px-5 md:px-10">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-[1fr_1.4fr] gap-16">
+      <div className="max-w-[1440px] mx-auto grid md:grid-cols-[1fr_1.4fr] gap-16">
         <div>
           <p className="font-mono text-xs tracking-[0.3em] text-brand uppercase">Why North End</p>
           <h2 className="font-display font-extrabold text-4xl md:text-6xl mt-3 leading-tight">Built on experience, passion and integrity.</h2>
@@ -234,7 +234,7 @@ function Work() {
   const row = [...gallery, ...gallery]
   return (
     <section id="work" className="bg-ink/85 backdrop-blur-sm py-24 overflow-hidden">
-      <h2 className="font-display font-extrabold text-4xl md:text-6xl px-5 md:px-10 mb-10">Recent work.</h2>
+      <h2 className="font-display font-extrabold text-4xl md:text-6xl px-wrap mb-10">Recent work.</h2>
       <div className="flex gap-5 w-max animate-[marq_50s_linear_infinite] hover:[animation-play-state:paused]">
         {row.map((g, i) => (
           <img key={i} src={`/img/${g}`} alt="North End Construction project" className="h-72 md:h-96 w-auto rounded-2xl object-cover border border-white/10" loading="lazy" />
@@ -261,7 +261,7 @@ function Contact() {
   const [sent, setSent] = useState(false)
   return (
     <section id="contact" className="relative bg-deep/90 backdrop-blur-sm py-28 px-5 md:px-10">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
+      <div className="max-w-[1440px] mx-auto grid md:grid-cols-2 gap-16">
         <div>
           <p className="font-mono text-xs tracking-[0.3em] text-brand uppercase">Free quote</p>
           <h2 className="font-display font-extrabold text-5xl md:text-7xl mt-3 leading-[0.95]">Let us build it.</h2>
@@ -293,7 +293,7 @@ function Contact() {
           {sent && <p className="text-sm text-white/60">Your email app should open with the message ready. Press send there to reach us.</p>}
         </form>
       </div>
-      <footer className="max-w-6xl mx-auto mt-24 pt-8 border-t border-white/10 flex flex-wrap justify-between gap-4 text-sm text-white/50">
+      <footer className="max-w-[1440px] mx-auto mt-24 pt-8 border-t border-white/10 flex flex-wrap justify-between gap-4 text-sm text-white/50">
         <span className="flex items-center gap-2"><Mark className="h-6 w-8" /> North End Construction</span>
         <span>Dedicated to creating your dream space from start to finish.</span>
       </footer>
@@ -328,7 +328,7 @@ export default function App() {
       <HeroVideo />
       <Scene />
       <Nav />
-      <main className="relative z-10 mx-auto w-full max-w-[1440px]">
+      <main className="relative z-10">
         <Hero />
         <Story />
         <Services />

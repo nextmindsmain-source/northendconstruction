@@ -50,7 +50,7 @@ export default function HeroVideo() {
   }, [])
 
   return (
-    <div ref={wrap} className="fixed inset-0 z-0 bg-ink">
+    <div ref={wrap} className="fixed inset-y-0 left-1/2 -translate-x-1/2 w-full max-w-[1440px] z-0 bg-ink">
       <img src="/video/start.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" />
       <video ref={vid} muted playsInline preload="auto" className={`absolute inset-0 h-full w-full object-cover ${fallback ? 'hidden' : ''}`} />
       {fallback && <img ref={still} src="/video/end.jpg" alt="" className="absolute inset-0 h-full w-full object-cover opacity-0" />}

@@ -66,15 +66,16 @@ function Mark({ className = '' }: { className?: string }) {
 
 function Nav() {
   return (
-    <header className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-5 md:px-10 py-4 bg-gradient-to-b from-ink/90 to-transparent">
-      <a href="#top" className="flex items-center gap-3">
-        <Mark className="h-9 w-11" />
-        <span className="font-display font-extrabold tracking-tight leading-none">
+    <header className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1440px] z-50 flex items-center justify-between px-5 md:px-10 py-4 bg-gradient-to-b from-ink/90 to-transparent">
+      <a href="#top" className="flex items-center gap-4">
+        <Mark className="h-14 w-[4.4rem]" />
+        <span className="font-display font-extrabold tracking-tight leading-none text-2xl">
           NORTH END
-          <span className="block font-mono text-[9px] tracking-[0.35em] text-white/60 font-normal mt-1">CONSTRUCTION</span>
+          <span className="block font-mono text-[11px] tracking-[0.35em] text-white/60 font-normal mt-1.5">CONSTRUCTION</span>
         </span>
       </a>
       <nav className="hidden md:flex gap-8 font-mono text-xs uppercase tracking-widest text-white/70">
+        <a href="#top" className="hover:text-white">Home</a>
         <a href="#services" className="hover:text-white">Services</a>
         <a href="#why" className="hover:text-white">Why us</a>
         <a href="#work" className="hover:text-white">Work</a>
@@ -151,7 +152,7 @@ function Services() {
   useEffect(() => {
     const mm = gsap.matchMedia()
     mm.add('(min-width: 768px)', () => {
-      const dist = () => track.current!.scrollWidth - window.innerWidth + 80
+      const dist = () => track.current!.scrollWidth - wrap.current!.clientWidth + 80
       gsap.to(track.current, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: wrap.current, start: 'top top', end: () => '+=' + dist(), pin: true, scrub: 0.8, invalidateOnRefresh: true } })
     })
     return () => mm.revert()
@@ -327,7 +328,7 @@ export default function App() {
       <HeroVideo />
       <Scene />
       <Nav />
-      <main className="relative z-10">
+      <main className="relative z-10 mx-auto w-full max-w-[1440px]">
         <Hero />
         <Story />
         <Services />

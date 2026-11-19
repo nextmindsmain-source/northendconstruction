@@ -120,7 +120,7 @@ function Story() {
     const ctx = gsap.context(() => {
       const lines = gsap.utils.toArray<HTMLElement>('.story-line')
       gsap.set(lines, { autoAlpha: 0, y: 60 })
-      const tl = gsap.timeline({ scrollTrigger: { trigger: ref.current, start: 'top top', end: '+=240%', pin: true, scrub: 0.6, onRefresh: (self) => { scroll.end = self.end } } })
+      const tl = gsap.timeline({ scrollTrigger: { trigger: ref.current, start: 'top top', end: '+=320%', pin: true, scrub: 0.6, onRefresh: (self) => { scroll.end = self.end } } })
       lines.forEach((l, i) => {
         tl.to(l, { autoAlpha: 1, y: 0, duration: 1 })
         if (i < lines.length - 1) tl.to(l, { autoAlpha: 0, y: -60, duration: 1 }, '+=0.6')
